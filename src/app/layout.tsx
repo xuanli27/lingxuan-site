@@ -6,7 +6,7 @@ import { Geist } from 'next/font/google';
 import { Footer } from '@/components/footer';
 import { Navigation } from '@/components/navigation';
 import { ThemeProvider } from '@/components/theme-provider';
-import { GoogleAnalytics } from '@next/third-parties/google';
+import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google';
 
 import Head from './head';
 
@@ -45,7 +45,7 @@ export default function RootLayout({
         </ThemeProvider>
       </body>
       <GoogleAnalytics gaId="GTM-54SKTNFL" />
+      <GoogleTagManager gtmId="G-Q2VJBHRBKL" />
     </html>
   )
 }
-
