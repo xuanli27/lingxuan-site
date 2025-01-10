@@ -65,9 +65,8 @@ export default function Contact() {
         <div>
           <h2 className="text-2xl font-semibold mb-4">联系方式</h2>
           <ul className="space-y-2">
-            <li>邮箱：cczutang@gmail.com</li>
-            <li>电话：177 0109 5357</li>
-            <li>地址：上海市</li>
+            <li>邮箱：info@lingxuan.tech</li>
+            <li>地址：上海市浦东新区</li>
           </ul>
 
           <h2 className="text-2xl font-semibold mt-8 mb-4">合作伙伴</h2>
