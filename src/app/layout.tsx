@@ -28,6 +28,7 @@ export default function RootLayout({
   return (
     <html lang="zh" suppressHydrationWarning>
       <Head />
+      <GoogleTagManager gtmId="G-Q2VJBHRBKL" />
       <body className={`${geist.variable} font-sans antialiased`}>
         <ThemeProvider
           attribute="class"
@@ -45,7 +46,6 @@ export default function RootLayout({
         </ThemeProvider>
       </body>
       <GoogleAnalytics gaId="GTM-54SKTNFL" />
-      <GoogleTagManager gtmId="G-Q2VJBHRBKL" />
     </html>
   )
 }
