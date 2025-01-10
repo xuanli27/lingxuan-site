@@ -1,8 +1,59 @@
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
+import { useState } from 'react';
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 
 export default function Contact() {
+  const [formData, setFormData] = useState({
+    name: '',
+    contact: '',
+    message: ''
+  });
+
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState('');
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setError('');
+    setSuccess(false);
+
+    try {
+      const response = await fetch('https://contact-xenoiklppw.cn-shanghai.fcapp.run', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+
+      if (response.ok) {
+        setSuccess(true);
+        setFormData({
+          name: '',
+          contact: '',
+          message: ''
+        });
+      } else {
+        setError('提交失败，请稍后再试。');
+      }
+    } catch {
+      setError('提交失败，请稍后再试。');
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-4xl font-bold mb-8 text-center">联系我们 | 让创新无界限</h1>
@@ -27,30 +78,33 @@ export default function Contact() {
 
         <div>
           <h2 className="text-2xl font-semibold mb-4">联系表单</h2>
-          <form className="space-y-4">
+          <form className="space-y-4" onSubmit={handleSubmit}>
             <div>
               <label htmlFor="name" className="block text-sm font-medium text-gray-700">
                 姓名
               </label>
-              <Input type="text" id="name" name="name" required />
+              <Input type="text" id="name" name="name" value={formData.name} onChange={handleChange} required />
             </div>
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                电子邮件
+              <label htmlFor="contact" className="block text-sm font-medium text-gray-700">
+                联系方式
               </label>
-              <Input type="email" id="email" name="email" required />
+              <Input id="contact" name="contact" value={formData.contact} onChange={handleChange} required />
             </div>
             <div>
               <label htmlFor="message" className="block text-sm font-medium text-gray-700">
                 留言内容
               </label>
-              <Textarea id="message" name="message" rows={4} required />
+              <Textarea id="message" name="message" rows={4} value={formData.message} onChange={handleChange} required />
             </div>
-            <Button type="submit">提交</Button>
+            <Button type="submit" disabled={loading}>
+              {loading ? '提交中...' : '提交'}
+            </Button>
           </form>
+          {success && <p className="text-green-500 mt-4">提交成功！我们会尽快与您联系。</p>}
+          {error && <p className="text-red-500 mt-4">{error}</p>}
         </div>
       </div>
     </div>
-  )
+  );
 }
-

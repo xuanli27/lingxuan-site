@@ -1,8 +1,8 @@
-const title = 'LingXuan Tech'
+const title = '灵渲科技'
 const url = 'https://lingxuan.tech/'
 const description = 'The easiest and fastest way to create a 3D website using React Three Fiber and NextJS'
 const author = 'qiandu'
-const twitter = '@lingxuan'
+const twitter = '@lingxuan.tech'
 
 export default function Head() {
   return (
