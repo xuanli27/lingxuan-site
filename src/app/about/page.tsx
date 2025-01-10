@@ -1,103 +1,122 @@
 "use client"
 
-import { useEffect } from "react";
-import Image from "next/image";
-import Link from "next/link";
+import { Canvas } from "@react-three/fiber"
+import { OrbitControls, Environment, Float, Text, Sphere, Cylinder } from "@react-three/drei"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
+import Link from "next/link"
 
-export default function AboutPage() {
-
-  useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("animate");
-        }
-      });
-    });
-
-    document.querySelectorAll(".fade-in, .stat-number").forEach((el) => {
-      observer.observe(el);
-    });
-
-    document.querySelectorAll(".stat-number").forEach((stat) => {
-      const updateNumber = () => {
-        const target = +(stat.getAttribute("data-value") || 0);
-        const current = +(stat.textContent || 0);
-
-        const increment = target / 100;
-        if (current < target) {
-          stat.textContent = Math.ceil(current + increment).toString();
-          setTimeout(updateNumber, 20);
-        } else {
-          stat.textContent = target.toString();
-        }
-      };
-      updateNumber();
-    });
-  }, []);
-
+function TeamMember({ position, name, role }: { position: [number, number, number], name: string, role: string }) {
   return (
-    <div className="container mx-auto px-4 text-white">
-      <h1 className="text-4xl font-bold text-center mb-10">
-        OUR APPROACH BLENDS THE <span className="text-blue-500">TIMELESS PRINCIPLES</span> OF CLASSICAL MARKETING WITH A <span className="text-blue-500">CREATIVE SPIRIT</span>
-      </h1>
-
-      <div className="flex flex-wrap justify-between items-center gap-6 mb-10">
-        <div className="stat text-center flex-1 fade-in">
-          <div className="stat-number text-5xl font-bold mb-2" data-value="350">0</div>
-          <div className="stat-description text-gray-400">thriving partnerships</div>
-        </div>
-        <div className="stat text-center flex-1 fade-in">
-          <div className="stat-number text-5xl font-bold mb-2" data-value="12">0</div>
-          <div className="stat-description text-gray-400">years of revolutionary marketing</div>
-        </div>
-        <div className="stat text-center flex-1 fade-in">
-          <div className="stat-number text-5xl font-bold mb-2" data-value="2">0</div>
-          <div className="stat-description text-gray-400">portfolio of ventures</div>
-        </div>
-        <div className="stat text-center flex-1 fade-in">
-          <div className="stat-number text-5xl font-bold mb-2" data-value="21">0</div>
-          <div className="stat-description text-gray-400">powerful team members</div>
-        </div>
-      </div>
-
-      <div className="flex justify-center globe fade-in">
-        <Image
-          src="/images/globe-placeholder.png"
-          alt="3D Globe"
-          width={400}
-          height={400}
-          className="opacity-0 transform scale-75 transition-transform duration-500 ease-in-out"
-        />
-      </div>
-
-      <footer className="text-center mt-10 py-4 bg-gray-900 text-gray-500">
-        <nav className="flex justify-center space-x-10">
-          {[
-              { name: "首页", href: "/" },
-              { name: "服务", href: "/services" },
-              { name: "案例", href: "/cases" },
-              { name: "关于我们", href: "/about" },
-              { name: "联系我们", href: "/contact" },
-          ].map((item) => (
-            <Link key={item.name} href={item.href}>{item.name}</Link>
-          ))}
-        </nav>
-        <p className="mt-4">© 2025 上海灵渲科技工作室 | All Rights Reserved</p>
-      </footer>
-
-      <style jsx>{`
-        .animate {
-          opacity: 1 !important;
-          transform: scale(1) !important;
-        }
-
-        .fade-in {
-          opacity: 0;
-          transform: translateY(20px);
-          transition: transform 0.6s ease, opacity 0.6s ease;
-        }
-      `}</style>
-    </div>
-  );
+    <Float speed={5} rotationIntensity={0.2} floatIntensity={2}>
+      <group position={position}>
+        <Sphere args={[0.3, 32, 32]}>
+          <meshStandardMaterial color="#8B5CF6" />
+        </Sphere>
+        <Cylinder args={[0.2, 0.2, 0.6, 32]} position={[0, -0.45, 0]}>
+          <meshStandardMaterial color="#4B5563" />
+        </Cylinder>
+        <Text position={[0, -0.8, 0]} fontSize={0.2} anchorX="center" anchorY="middle">
+          {name}
+        </Text>
+        <Text position={[0, -1, 0]} fontSize={0.15} anchorX="center" anchorY="middle" color="gray">
+          {role}
+        </Text>
+      </group>
+    </Float>
+  )
 }
+
+function Team3D() {
+  return (
+    <Canvas camera={{ position: [0, 0, 5] }}>
+      <ambientLight intensity={0.5} />
+      <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
+      <TeamMember position={[-2, 0, 0]} name="千渡" role="首席技术官" />
+      <TeamMember position={[0, 0, 0]} name="千渡" role="AI研究主管" />
+      <TeamMember position={[2, 0, 0]} name="千渡" role="VR开发负责人" />
+      <Environment preset="studio" />
+      <OrbitControls enableZoom={false} />
+    </Canvas>
+  )
+}
+
+export default function About() {
+  return (
+    <div className="container mx-auto px-4 py-8">
+      <h1 className="text-4xl font-bold mb-8 text-center text-primary">关于灵渲科技工作室 | 聚焦科技与创新，打造未来</h1>
+      <p className="text-xl mb-12 text-center text-gray-400">
+        灵渲科技工作室成立于上海，是一家以技术创新为驱动，致力于为全球客户提供高效、智能化解决方案的科技公司。我们的团队拥有深厚的技术积累，专注于3D图形渲染、人工智能与前端开发等技术领域。
+      </p>
+
+      <section className="mb-12">
+        <h2 className="text-2xl font-semibold mb-4 text-primary">我们的愿景</h2>
+        <p className="text-lg text-gray-300">
+          通过不断创新，为全球企业带来数字化转型的动力，打破行业壁垒，创造无界限的未来。
+        </p>
+      </section>
+
+      <section className="mb-12">
+        <h2 className="text-2xl font-semibold mb-4 text-primary">我们的使命</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <Card className="bg-card hover:bg-card/80 transition-colors">
+            <CardHeader>
+              <CardTitle className="text-primary">技术创新</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <CardDescription>
+                我们始终保持技术领先，推动产业的数字化升级。
+              </CardDescription>
+            </CardContent>
+          </Card>
+          <Card className="bg-card hover:bg-card/80 transition-colors">
+            <CardHeader>
+              <CardTitle className="text-primary">客户至上</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <CardDescription>
+                关注每一个细节，满足客户的个性化需求，助力客户快速发展。
+              </CardDescription>
+            </CardContent>
+          </Card>
+          <Card className="bg-card hover:bg-card/80 transition-colors">
+            <CardHeader>
+              <CardTitle className="text-primary">全球合作</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <CardDescription>
+                我们的技术解决方案面向全球市场，帮助企业迈向国际化。
+              </CardDescription>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      <section className="mb-12">
+        <h2 className="text-2xl font-semibold mb-4 text-primary">团队介绍</h2>
+        <p className="text-lg mb-4 text-gray-300">
+          灵渲科技由一群经验丰富、富有创造力的技术专家和设计师组成。我们将技术与艺术相结合，以解决复杂的业务问题，帮助客户实现最大化的商业价值。
+        </p>
+        <div className="h-[50vh] mb-8">
+          <Team3D />
+        </div>
+      </section>
+
+      <section className="mb-12">
+        <h2 className="text-2xl font-semibold mb-4 text-primary">我们的价值观</h2>
+        <ul className="list-disc list-inside space-y-2 text-lg text-gray-300">
+          <li>创新：勇于尝试新技术，推动行业变革。</li>
+          <li>责任：始终坚持客户利益至上，关注社会责任。</li>
+          <li>协作：与客户密切合作，共同打造成功的项目。</li>
+        </ul>
+      </section>
+
+      <div className="text-center">
+        <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90">
+          <Link href="/contact">了解更多关于我们</Link>
+        </Button>
+      </div>
+    </div>
+  )
+}
+

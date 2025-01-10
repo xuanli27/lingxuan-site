@@ -5,7 +5,7 @@ export default function CasesPage() {
   return (
     <div className="container mx-auto px-4 text-white">
       <h1 className="text-4xl font-bold text-center mb-10">
-        SUCCESSFUL <span className="text-blue-500">CASES</span>
+        成功的 <span className="text-blue-500">案例</span>
       </h1>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -15,8 +15,8 @@ export default function CasesPage() {
             key={caseNumber}
             className="bg-gray-800 p-4 rounded-lg hover:shadow-lg hover:shadow-blue-500/50 transition"
           >
-            <h3 className="text-lg font-bold text-blue-500 mb-2">Case #{caseNumber}</h3>
-            <p className="text-gray-400">Description of the case goes here.</p>
+            <h3 className="text-lg font-bold text-blue-500 mb-2">案例 #{caseNumber}</h3>
+            <p className="text-gray-400">案例描述。</p>
           </div>
         ))}
       </div>
