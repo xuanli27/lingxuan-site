@@ -6,6 +6,9 @@ import { Geist } from 'next/font/google';
 import { Footer } from '@/components/footer';
 import { Navigation } from '@/components/navigation';
 import { ThemeProvider } from '@/components/theme-provider';
+import { GoogleAnalytics } from '@next/third-parties/google';
+
+import Head from './head';
 
 const geist = Geist({
   subsets: ['latin'],
@@ -24,6 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="zh" suppressHydrationWarning>
+      <Head />
       <body className={`${geist.variable} font-sans antialiased`}>
         <ThemeProvider
           attribute="class"
@@ -40,6 +44,7 @@ export default function RootLayout({
           </div>
         </ThemeProvider>
       </body>
+      <GoogleAnalytics gaId="GTM-54SKTNFL" />
     </html>
   )
 }
