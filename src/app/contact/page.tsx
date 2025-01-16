@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import Image from 'next/image';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -105,6 +106,10 @@ export default function Contact() {
           {success && <p className="text-green-500 mt-4">提交成功！我们会尽快与您联系。</p>}
           {error && <p className="text-red-500 mt-4">{error}</p>}
         </div>
+      </div>
+
+      <div className="flex justify-center mt-12">
+        <Image src="/images/contact-illustration.svg" alt="Contact Illustration" className="w-1/2 h-auto" />
       </div>
     </div>
   );

@@ -29,7 +29,7 @@ export default function RootLayout({
     <html lang="zh" suppressHydrationWarning>
       <Head />
       <GoogleTagManager gtmId="G-Q2VJBHRBKL" />
-      <body className={`${geist.variable} font-sans antialiased`}>
+      <body className={`${geist.variable} font-sans antialiased bg-black text-white`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"

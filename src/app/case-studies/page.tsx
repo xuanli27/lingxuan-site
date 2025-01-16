@@ -98,19 +98,19 @@ function CaseStudies3D() {
 
 function CaseStudyCard({ title, challenge, solution, result }) {
   return (
-    <Card className="bg-black/50 backdrop-blur-md border-primary/20 hover:border-primary transition-all duration-300 transform hover:scale-105">
+    <Card className="bg-gray-800 backdrop-blur-md border-gray-700 hover:border-gray-500 transition-all duration-300 transform hover:scale-105">
       <CardHeader>
-        <CardTitle className="text-primary">{title}</CardTitle>
+        <CardTitle className="text-gray-400">{title}</CardTitle>
       </CardHeader>
       <CardContent>
         <CardDescription className="text-gray-300 mb-2">
-          <strong className="text-primary">挑战：</strong> {challenge}
+          <strong className="text-gray-400">挑战：</strong> {challenge}
         </CardDescription>
         <CardDescription className="text-gray-300 mb-2">
-          <strong className="text-primary">解决方案：</strong> {solution}
+          <strong className="text-gray-400">解决方案：</strong> {solution}
         </CardDescription>
         <CardDescription className="text-gray-300">
-          <strong className="text-primary">成果：</strong> {result}
+          <strong className="text-gray-400">成果：</strong> {result}
         </CardDescription>
       </CardContent>
     </Card>
@@ -119,10 +119,10 @@ function CaseStudyCard({ title, challenge, solution, result }) {
 
 export default function CaseStudies() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-violet-800 text-white">
+    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-gray-800 text-white">
       <div className="container mx-auto px-4 py-16">
         <AnimatedText>
-          <h1 className="text-4xl font-bold mb-8 text-center bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600">
+          <h1 className="text-4xl font-bold mb-8 text-center bg-clip-text text-transparent bg-gradient-to-r from-gray-400 to-gray-600">
             我们的成功案例 | 技术赋能，成就非凡
           </h1>
         </AnimatedText>
