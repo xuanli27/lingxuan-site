@@ -1,0 +1,91 @@
+{
+  "navigation": {
+    "home": "Home",
+    "services": "Services",
+    "cases": "Cases",
+    "about": "About",
+    "contact": "Contact",
+    "aiExperience": "AI Experience"
+  },
+  "homepage": {
+    "slogan": "Rendering the Future, Intelligence Emerging",
+    "subtitle": "Shanghai LingXuan Tech - Leading the Digital Genesis Revolution",
+    "cta": "Begin the Genesis Journey",
+    "sections": {
+      "genesis": "Digital Genesis",
+      "neural": "Neural Network Awakening",
+      "crystal": "Intelligent Crystallization",
+      "ecosystem": "Application Ecosystem"
+    },
+    "services": {
+      "title": "Core Service Capabilities",
+      "generativeAI": "Generative AI",
+      "multiModal": "Multi-modal AI",
+      "rendering3D": "3D Rendering",
+      "webDevelopment": "Web Development",
+      "mobileApp": "Mobile Applications",
+      "systemIntegration": "System Integration"
+    }
+  },
+  "services": {
+    "title": "Intelligent Matrix - Service Solutions",
+    "subtitle": "Complete solutions based on cutting-edge AI technology",
+    "categories": {
+      "ai": "Artificial Intelligence",
+      "development": "Application Development",
+      "rendering": "3D Rendering",
+      "consulting": "Technical Consulting"
+    }
+  },
+  "cases": {
+    "title": "Future Archives - Success Stories",
+    "subtitle": "Witnessing the infinite possibilities of technological innovation",
+    "viewDetails": "View Details",
+    "techStack": "Tech Stack",
+    "challenge": "Challenge",
+    "solution": "Solution",
+    "results": "Results & Value"
+  },
+  "about": {
+    "title": "Genesis Team - About Us",
+    "subtitle": "Gathering top AI experts to create a digital future",
+    "mission": "Mission & Vision",
+    "team": "Core Team",
+    "culture": "Corporate Culture",
+    "technology": "Technical Strength"
+  },
+  "contact": {
+    "title": "Establish Connection",
+    "subtitle": "Join us in the digital transformation journey",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "company": "Company",
+      "message": "Message",
+      "submit": "Render Your Vision"
+    },
+    "info": {
+      "address": "Pudong New Area, Shanghai",
+      "phone": "+86 21 xxxx xxxx",
+      "email": "hello@lingxuan.tech"
+    }
+  },
+  "aiExperience": {
+    "title": "AI Experience Zone",
+    "subtitle": "Experience the power of cutting-edge AI technology firsthand",
+    "demos": {
+      "textGeneration": "Intelligent Text Generation",
+      "imageGeneration": "AI Image Creation",
+      "voiceInteraction": "Voice Interaction Experience",
+      "predictiveAnalysis": "Predictive Analysis"
+    }
+  },
+  "common": {
+    "learnMore": "Learn More",
+    "getStarted": "Get Started",
+    "contactUs": "Contact Us",
+    "loading": "Loading...",
+    "comingSoon": "Coming Soon",
+    "backToTop": "Back to Top"
+  }
+}
