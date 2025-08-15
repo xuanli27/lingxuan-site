@@ -1,0 +1,91 @@
+{
+  "navigation": {
+    "home": "首页",
+    "services": "服务方案",
+    "cases": "成功案例", 
+    "about": "关于我们",
+    "contact": "联系我们",
+    "aiExperience": "AI体验区"
+  },
+  "homepage": {
+    "slogan": "渲染未来，智能涌现",
+    "subtitle": "上海灵渲科技 - 开创数字创世纪的技术引领者",
+    "cta": "开启创世之旅",
+    "sections": {
+      "genesis": "数字创世纪",
+      "neural": "神经网络觉醒",
+      "crystal": "智能晶体化",
+      "ecosystem": "应用生态构建"
+    },
+    "services": {
+      "title": "核心服务能力",
+      "generativeAI": "生成式AI",
+      "multiModal": "多模态AI",
+      "rendering3D": "3D渲染",
+      "webDevelopment": "Web开发",
+      "mobileApp": "移动应用",
+      "systemIntegration": "系统集成"
+    }
+  },
+  "services": {
+    "title": "智能矩阵 - 服务方案",
+    "subtitle": "基于前沿AI技术的完整解决方案",
+    "categories": {
+      "ai": "人工智能",
+      "development": "应用开发",
+      "rendering": "3D渲染",
+      "consulting": "技术咨询"
+    }
+  },
+  "cases": {
+    "title": "未来档案馆 - 成功案例",
+    "subtitle": "见证技术创新的无限可能",
+    "viewDetails": "查看详情",
+    "techStack": "技术栈",
+    "challenge": "挑战",
+    "solution": "解决方案",
+    "results": "成果价值"
+  },
+  "about": {
+    "title": "创世团队 - 关于我们",
+    "subtitle": "汇聚顶尖AI专家，共创数字未来",
+    "mission": "使命愿景",
+    "team": "核心团队",
+    "culture": "企业文化",
+    "technology": "技术实力"
+  },
+  "contact": {
+    "title": "建立连接",
+    "subtitle": "与我们一起开启数字化转型之旅",
+    "form": {
+      "name": "姓名",
+      "email": "邮箱",
+      "company": "公司",
+      "message": "留言",
+      "submit": "渲染您的构想"
+    },
+    "info": {
+      "address": "上海市浦东新区",
+      "phone": "+86 21 xxxx xxxx",
+      "email": "hello@lingxuan.tech"
+    }
+  },
+  "aiExperience": {
+    "title": "AI体验区",
+    "subtitle": "亲身感受前沿AI技术的强大能力",
+    "demos": {
+      "textGeneration": "智能文本生成",
+      "imageGeneration": "AI图像创作",
+      "voiceInteraction": "语音交互体验",
+      "predictiveAnalysis": "预测性分析"
+    }
+  },
+  "common": {
+    "learnMore": "了解更多",
+    "getStarted": "开始体验",
+    "contactUs": "联系我们",
+    "loading": "加载中...",
+    "comingSoon": "即将推出",
+    "backToTop": "返回顶部"
+  }
+}
