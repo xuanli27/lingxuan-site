@@ -264,7 +264,6 @@ export default function ParticleBackground({
 }: ParticleBackgroundProps) {
   return (
     <div className={className}>
-      {/* @ts-expect-error React Three Fiber types */}
       <Canvas
         camera={{
           position: [0, 0, 30],
