@@ -106,8 +106,8 @@ export default function Footer() {
               </li>
               <li className="flex items-start gap-3 text-neutral-grey font-lato text-sm">
                 <Mail size={18} className="text-genesis-cyan mt-0.5 flex-shrink-0" />
-                <a href="mailto:hello@lingxuan.tech" className="hover:text-genesis-cyan transition-colors">
-                  hello@lingxuan.tech
+                <a href="mailto:info@lingxuan.tech" className="hover:text-genesis-cyan transition-colors">
+                  info@lingxuan.tech
                 </a>
               </li>
               <li className="flex items-start gap-3 text-neutral-grey font-lato text-sm">

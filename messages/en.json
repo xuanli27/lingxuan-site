@@ -58,16 +58,21 @@
     "title": "Establish Connection",
     "subtitle": "Join us in the digital transformation journey",
     "form": {
+      "title": "Send Message",
       "name": "Name",
       "email": "Email",
       "company": "Company",
+      "contact": "Phone",
       "message": "Message",
-      "submit": "Render Your Vision"
+      "submit": "Render Your Vision",
+      "submitting": "Submitting...",
+      "successMessage": "Success! We will contact you soon.",
+      "errorMessage": "Submission failed, please try again later."
     },
     "info": {
       "address": "Pudong New Area, Shanghai",
       "phone": "+86 21 xxxx xxxx",
-      "email": "hello@lingxuan.tech"
+      "email": "info@lingxuan.tech"
     }
   },
   "aiExperience": {

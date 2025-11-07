@@ -1,5 +1,6 @@
 import { getTranslations } from 'next-intl/server';
 import { MapPin, Mail, Phone } from 'lucide-react';
+import ContactFormClient from '@/components/pages/ContactFormClient';
 
 export default async function ContactPage({
   params
@@ -26,34 +27,7 @@ export default async function ContactPage({
         </p>
 
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div className="glass-card p-8 rounded-xl hover:scale-[1.02] transition-all duration-500 animate-float">
-            <h2 className="text-2xl font-exo font-semibold text-genesis-cyan mb-6 flex items-center gap-3">
-              <span className="w-2 h-2 rounded-full bg-genesis-cyan animate-pulse" />
-              发送消息
-            </h2>
-            <form className="space-y-5">
-              <div>
-                <label className="block text-stardust-white mb-2 font-medium">{t('contact.form.name')}</label>
-                <input type="text" className="w-full bg-deep-space border border-genesis-cyan/30 rounded-lg px-4 py-3 text-stardust-white focus:border-genesis-cyan focus:glow outline-none transition-all duration-300" />
-              </div>
-              <div>
-                <label className="block text-stardust-white mb-2 font-medium">{t('contact.form.email')}</label>
-                <input type="email" className="w-full bg-deep-space border border-genesis-cyan/30 rounded-lg px-4 py-3 text-stardust-white focus:border-genesis-cyan focus:glow outline-none transition-all duration-300" />
-              </div>
-              <div>
-                <label className="block text-stardust-white mb-2 font-medium">{t('contact.form.company')}</label>
-                <input type="text" className="w-full bg-deep-space border border-genesis-cyan/30 rounded-lg px-4 py-3 text-stardust-white focus:border-genesis-cyan focus:glow outline-none transition-all duration-300" />
-              </div>
-              <div>
-                <label className="block text-stardust-white mb-2 font-medium">{t('contact.form.message')}</label>
-                <textarea rows={4} className="w-full bg-deep-space border border-genesis-cyan/30 rounded-lg px-4 py-3 text-stardust-white focus:border-genesis-cyan focus:glow outline-none transition-all duration-300 resize-none"></textarea>
-              </div>
-              <button type="submit" className="w-full bg-gradient-to-r from-genesis-cyan to-impulse-violet text-deep-space font-exo font-semibold px-8 py-4 rounded-full hover:shadow-lg hover:shadow-genesis-cyan/25 hover:scale-105 transition-all duration-300 relative overflow-hidden group">
-                <span className="relative z-10">{t('contact.form.submit')}</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-impulse-violet to-genesis-cyan opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </button>
-            </form>
-          </div>
+          <ContactFormClient />
 
           <div className="space-y-6">
             <div className="glass-card p-8 rounded-xl hover:scale-[1.02] transition-all duration-500 animate-float" style={{ animationDelay: '0.2s' }}>

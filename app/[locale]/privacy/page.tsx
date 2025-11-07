@@ -60,7 +60,7 @@ export default async function PrivacyPage({
 
           <div className="pt-6 border-t border-genesis-cyan/20">
             <p className="text-sm">最后更新：2025年1月</p>
-            <p className="text-sm mt-2">如有疑问，请联系：hello@lingxuan.tech</p>
+            <p className="text-sm mt-2">如有疑问，请联系：info@lingxuan.tech</p>
           </div>
         </div>
       </div>

@@ -58,16 +58,21 @@
     "title": "建立连接",
     "subtitle": "与我们一起开启数字化转型之旅",
     "form": {
+      "title": "发送消息",
       "name": "姓名",
       "email": "邮箱",
       "company": "公司",
+      "contact": "联系电话",
       "message": "留言",
-      "submit": "渲染您的构想"
+      "submit": "渲染您的构想",
+      "submitting": "提交中...",
+      "successMessage": "提交成功！我们会尽快与您联系。",
+      "errorMessage": "提交失败，请稍后再试。"
     },
     "info": {
       "address": "上海市浦东新区",
       "phone": "+86 21 xxxx xxxx",
-      "email": "hello@lingxuan.tech"
+      "email": "info@lingxuan.tech"
     }
   },
   "aiExperience": {
