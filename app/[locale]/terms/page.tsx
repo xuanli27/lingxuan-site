@@ -1,13 +1,6 @@
-import { getTranslations } from 'next-intl/server';
 import { FileText } from 'lucide-react';
 
-export default async function TermsPage({
-  params
-}: {
-  params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await params;
-  const t = await getTranslations({ locale });
+export default async function TermsPage() {
 
   return (
     <div className="min-h-screen bg-deep-space text-stardust-white py-20">
@@ -45,7 +38,7 @@ export default async function TermsPage({
 
           <section>
             <h2 className="text-2xl font-exo font-semibold text-impulse-violet mb-4">5. 免责声明</h2>
-            <p>服务按"现状"提供，我们不对服务的准确性、可靠性或适用性作任何明示或暗示的保证。</p>
+            <p>服务按&ldquo;现状&rdquo;提供，我们不对服务的准确性、可靠性或适用性作任何明示或暗示的保证。</p>
           </section>
 
           <section>

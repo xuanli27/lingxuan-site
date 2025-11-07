@@ -10,7 +10,7 @@ interface HomePageClientProps {
   translations: Record<string, unknown>;
 }
 
-export default function HomePageClient({ locale, translations }: HomePageClientProps) {
+export default function HomePageClient({ translations }: HomePageClientProps) {
   const t = (key: string): string => {
     const keys = key.split('.');
     let value: unknown = translations;

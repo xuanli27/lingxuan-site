@@ -1,13 +1,6 @@
-import { getTranslations } from 'next-intl/server';
 import { Shield } from 'lucide-react';
 
-export default async function PrivacyPage({
-  params
-}: {
-  params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await params;
-  const t = await getTranslations({ locale });
+export default async function PrivacyPage() {
 
   return (
     <div className="min-h-screen bg-deep-space text-stardust-white py-20">
