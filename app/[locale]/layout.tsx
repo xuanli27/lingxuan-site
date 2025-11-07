@@ -80,7 +80,6 @@ export default async function LocaleLayout({
         <meta name="twitter:description" content="渲染未来，智能涌现" />
       </head>
       <body className="font-lato antialiased">
-        {/* @ts-expect-error Server Component */}
         <NextIntlClientProvider messages={messages} locale={locale}>
           <Navigation />
           {children}
