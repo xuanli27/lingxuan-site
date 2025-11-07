@@ -51,7 +51,7 @@ export function useParticleSystem(count: number = 1000) {
     }
   }, [count, particles]);
 
-  useFrame((state) => {
+  useFrame(() => {
     if (particles) {
       const positions = particles.geometry.attributes.position;
       const velocities = particles.geometry.attributes.velocity;

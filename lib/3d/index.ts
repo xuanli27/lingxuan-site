@@ -176,7 +176,7 @@ export function createIntelligentCrystal(): THREE.Group {
 }
 
 // 更新粒子系统动画
-export function updateParticles(particles: THREE.Points, time: number) {
+export function updateParticles(particles: THREE.Points) {
   const positions = particles.geometry.attributes.position;
   const velocities = particles.geometry.attributes.velocity;
   

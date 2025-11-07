@@ -3,32 +3,21 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useTranslations } from 'next-intl';
+import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Menu, X, Globe } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
-interface NavigationProps {
-  locale: string;
-  messages: {
-    navigation: {
-      home: string;
-      services: string;
-      cases: string;
-      about: string;
-      contact: string;
-      aiExperience: string;
-    }
-  };
-}
-
-const Navigation = ({ locale, messages }: NavigationProps) => {
+const Navigation = () => {
   const pathname = usePathname();
+  const t = useTranslations();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  // 监听滚动状态
+  const locale = pathname.split('/')[1] || 'zh';
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
@@ -39,15 +28,13 @@ const Navigation = ({ locale, messages }: NavigationProps) => {
   }, []);
 
   const navigationItems = [
-    { href: `/${locale}`, label: messages.navigation.home },
-    { href: `/${locale}/services`, label: messages.navigation.services },
-    { href: `/${locale}/cases`, label: messages.navigation.cases },
-    { href: `/${locale}/about`, label: messages.navigation.about },
-    { href: `/${locale}/contact`, label: messages.navigation.contact },
-    { href: `/${locale}/ai-experience`, label: messages.navigation.aiExperience },
+    { href: `/${locale}`, label: t('navigation.home') },
+    { href: `/${locale}/services`, label: t('navigation.services') },
+    { href: `/${locale}/cases`, label: t('navigation.cases') },
+    { href: `/${locale}/about`, label: t('navigation.about') },
+    { href: `/${locale}/contact`, label: t('navigation.contact') },
+    { href: `/${locale}/ai-experience`, label: t('navigation.aiExperience') },
   ];
-
-  const currentPath = pathname.split('/')[2] || '';
 
   return (
     <motion.header

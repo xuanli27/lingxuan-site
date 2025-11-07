@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef, useMemo, useState, useCallback } from 'react';
+import React, { useRef, useMemo, useCallback } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { Points, Line } from '@react-three/drei';
 import * as THREE from 'three';
@@ -24,7 +24,7 @@ function ParticleCloud({ count = 2000, interactive = true, showConnections = fal
   const { size, viewport } = useThree();
   
   // 生成粒子数据
-  const [positions, colors, velocities, originalPositions] = useMemo(() => {
+  const [positions, colors, originalPositions] = useMemo(() => {
     const positions = new Float32Array(count * 3);
     const colors = new Float32Array(count * 3);
     const velocities = new Float32Array(count * 3);
@@ -42,14 +42,14 @@ function ParticleCloud({ count = 2000, interactive = true, showConnections = fal
     for (let i = 0; i < count; i++) {
       const i3 = i * 3;
       
-      // 创建球形分布的粒子
-      const radius = Math.random() * 30 + 10;
+      // 创建更大范围的球形分布
+      const radius = Math.random() * 40 + 15;
       const theta = Math.random() * Math.PI * 2;
       const phi = Math.acos(2 * Math.random() - 1);
-      
+
       const x = radius * Math.sin(phi) * Math.cos(theta);
       const y = radius * Math.sin(phi) * Math.sin(theta);
-      const z = radius * Math.cos(phi);
+      const z = radius * Math.cos(phi) - 10;
       
       positions[i3] = x;
       positions[i3 + 1] = y;
@@ -71,8 +71,8 @@ function ParticleCloud({ count = 2000, interactive = true, showConnections = fal
       colors[i3 + 1] = selectedColor.g;
       colors[i3 + 2] = selectedColor.b;
     }
-    
-    return [positions, colors, velocities, originalPositions];
+
+    return [positions, colors, originalPositions];
   }, [count]);
 
   // 生成连接线数据
@@ -114,7 +114,7 @@ function ParticleCloud({ count = 2000, interactive = true, showConnections = fal
   }, [count, originalPositions, showConnections]);
 
   // 鼠标交互处理
-  const handlePointerMove = useCallback((event: any) => {
+  const handlePointerMove = useCallback((event: React.PointerEvent<HTMLDivElement>) => {
     if (!interactive) return;
     
     mouseRef.current.x = (event.clientX / size.width) * 2 - 1;
@@ -122,7 +122,7 @@ function ParticleCloud({ count = 2000, interactive = true, showConnections = fal
   }, [size, interactive]);
 
   // 动画循环
-  useFrame((state, delta) => {
+  useFrame((state) => {
     if (!ref.current) return;
     
     const time = state.clock.elapsedTime;
@@ -197,21 +197,24 @@ function ParticleCloud({ count = 2000, interactive = true, showConnections = fal
             count={positions.length / 3}
             array={positions}
             itemSize={3}
+            args={[positions, 3]}
           />
           <bufferAttribute
             attach="attributes-color"
             count={colors.length / 3}
             array={colors}
             itemSize={3}
+            args={[colors, 3]}
           />
         </bufferGeometry>
         <pointsMaterial
-          size={0.15}
+          size={0.2}
           sizeAttenuation={true}
           vertexColors={true}
           transparent={true}
-          opacity={0.9}
+          opacity={0.95}
           blending={THREE.AdditiveBlending}
+          depthWrite={false}
         />
       </Points>
 
@@ -261,15 +264,21 @@ export default function ParticleBackground({
 }: ParticleBackgroundProps) {
   return (
     <div className={className}>
+      {/* @ts-expect-error React Three Fiber types */}
       <Canvas
         camera={{
-          position: [0, 0, 20],
+          position: [0, 0, 30],
           fov: 75,
           near: 0.1,
           far: 1000
         }}
         style={{ background: 'transparent' }}
-        dpr={[1, 2]} // 提高渲染质量
+        dpr={[1, 2]}
+        gl={{
+          antialias: true,
+          alpha: true,
+          powerPreference: 'high-performance'
+        }}
       >
         <AmbientEffects />
         <ParticleCloud
@@ -277,6 +286,7 @@ export default function ParticleBackground({
           interactive={interactive}
           showConnections={showConnections}
         />
+        <fog attach="fog" args={['#050816', 30, 100]} />
       </Canvas>
     </div>
   );
